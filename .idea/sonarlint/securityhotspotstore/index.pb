@@ -99,3 +99,27 @@ idesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/bo
 kdesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/book/UpdateBookWebRequest.java,9\8\9805736528ae73b7443d961ec3c947a1119ed4d1
 ô
 idesign-pattern-common/src/main/java/com/practice/design/pattern/common/exception/BadRequestException.java,6\d\6d59f6d5c54b11aa49b2e483b51df7fef0643b07
+ù
+mdesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/member/SaveMemberWebRequest.java,b\a\ba1fe1eac755f63f9ec4d1b2113b4921f11e39c8
+Ç
+Rdesign-pattern-entity/src/main/java/com/practice/design/pattern/entity/Member.java,7\9\7968ba756eb7a9ee1a8045d1410d600c1c380193
+Ö
+Udesign-pattern-entity/src/main/java/com/practice/design/pattern/entity/Borrowing.java,9\f\9f23b18094f2f0aaa7ad72409227c98a6b6bfa92
+ë
+adesign-pattern-common/src/main/java/com/practice/design/pattern/common/enums/BorrowingStatus.java,d\1\d15001db999843c56fb634a868c7402bd17f76c0
+î
+ddesign-pattern-repository/src/main/java/com/practice/design/pattern/repository/MemberRepository.java,5\b\5bde844f7cd63b32b24cbaf4ba8fdac7e33ea693
+ó
+gdesign-pattern-repository/src/main/java/com/practice/design/pattern/repository/BorrowingRepository.java,3\6\36a5002149693c4b9382bbccf38f4359b2f5ae58
+ü
+odesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/member/UpdateMemberWebRequest.java,6\4\64410a465905b3555be8d3eefd25b6010f8ed5d6
+ü
+odesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/member/BorrowMemberWebRequest.java,2\0\2072f4270543b8e0df4bd2fcc568cd063dae0bf4
+â
+Ydesign-pattern-web/src/main/java/com/practice/design/pattern/web/BorrowingController.java,8\4\84e6d3684e4b81f18e8e19500a2f1453427a84f2
+¢
+rdesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/borrowing/BorrowMemberWebRequest.java,2\2\223af7dc3ef06a704541194c74c5c5461b3b2922
+£
+sdesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/borrowing/SaveBorrowingWebRequest.java,b\e\be3da46270d13e41971895f02bd4a5608e1e7a4f
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
