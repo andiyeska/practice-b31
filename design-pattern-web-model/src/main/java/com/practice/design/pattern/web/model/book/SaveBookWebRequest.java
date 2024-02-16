@@ -1,4 +1,4 @@
-package com.practice.design.pattern.service.model.book;
+package com.practice.design.pattern.web.model.book;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -11,8 +11,6 @@
         <module name="design-pattern-service-impl" />
         <module name="design-pattern-command-impl" />
         <module name="design-pattern-command" />
-        <module name="design-pattern-enum" />
-        <module name="design-pattern-service-model" />
         <module name="design-pattern-web" />
         <module name="design-pattern-repository" />
         <module name="design-pattern-command-model" />
@@ -22,6 +20,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="design-pattern-enum" target="17" />
+      <module name="design-pattern-service-model" target="17" />
       <module name="design.pattern.core" target="17" />
     </bytecodeTargetLevel>
   </component>

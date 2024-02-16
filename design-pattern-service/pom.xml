@@ -15,7 +15,7 @@
 		<!-- Internal Dependencies -->
 		<dependency>
 			<groupId>com.practice</groupId>
-			<artifactId>design-pattern-service-model</artifactId>
+			<artifactId>design-pattern-entity</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -24,6 +24,11 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-	</dependencies>
+
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

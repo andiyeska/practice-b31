@@ -1,11 +1,8 @@
 package com.practice.design.pattern.web;
 
-import com.practice.design.pattern.common.exception.BadRequestException;
 import com.practice.design.pattern.entity.Book;
-import com.practice.design.pattern.common.exception.DataNotFoundException;
-import com.practice.design.pattern.common.exception.DuplicateDataException;
-import com.practice.design.pattern.repository.BookRepository;
-import com.practice.design.pattern.service.model.book.SaveBookWebRequest;
+import com.practice.design.pattern.service.BookService;
+import com.practice.design.pattern.web.model.book.SaveBookWebRequest;
 import com.practice.design.pattern.web.model.book.UpdateBookWebRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,18 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.List;
 
 @Slf4j
+@RestController
 @RequiredArgsConstructor
-@RestController(BookController.BASE_PATH)
+@RequestMapping(BookController.BASE_PATH)
 public class BookController {
 
   public static final String BASE_PATH = "/books";
@@ -35,77 +31,52 @@ public class BookController {
   private static final String ADD_QUANTITY_PATH = "/_add-quantity";
   private static final String REDUCE_QUANTITY_PATH = "/_reduce-quantity";
 
-  private final BookRepository bookRepository;
+  private final BookService bookService;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Mono<Book> save(@RequestBody SaveBookWebRequest webRequest) {
-    return bookRepository.findById(webRequest.getId())
-        .switchIfEmpty(Mono.just(Book.builder().build()))
-        .filter(book -> Objects.isNull(book.getId()))
-        .switchIfEmpty(Mono.error(new DuplicateDataException(Book.class, webRequest.getId())))
-        .map(book -> book.toBuilder()
+    return bookService.save(
+        Book.builder()
             .id(webRequest.getId())
             .name(webRequest.getName())
             .quantity(webRequest.getQuantity())
-            .build())
-        .flatMap(bookRepository::save)
-        .doOnSuccess(book -> log.info("Successfully save book with id: {}", book.getId()));
+            .build());
   }
 
   @PutMapping(BOOK_ID_PATH)
   @ResponseStatus(HttpStatus.OK)
   public Mono<Book> update(@PathVariable(BOOK_ID) String bookId, @RequestBody UpdateBookWebRequest webRequest) {
-    return bookRepository.findById(bookId)
-        .switchIfEmpty(Mono.error(new DataNotFoundException(Book.class, Map.of(BOOK_ID, bookId))))
-        .map(book -> book.toBuilder()
+    return bookService.update(
+        Book.builder()
+            .id(bookId)
             .name(webRequest.getName())
             .quantity(webRequest.getQuantity())
-            .build())
-        .flatMap(bookRepository::save)
-        .doOnSuccess(book -> log.info("Successfully update book with id: {}", book.getId()));
+            .build());
   }
 
   @GetMapping(BOOK_ID_PATH)
   @ResponseStatus(HttpStatus.OK)
   public Mono<Book> get(@PathVariable(BOOK_ID) String bookId) {
-    return bookRepository.findById(bookId)
-        .switchIfEmpty(Mono.error(new DataNotFoundException(Book.class, Map.of(BOOK_ID, bookId))))
-        .doOnSuccess(book -> log.info("Successfully get book with id: {}", book.getId()));
+    return bookService.get(bookId);
   }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public Flux<Book> getAll() {
-    return bookRepository.findAll()
-        .switchIfEmpty(Mono.error(new DataNotFoundException(Book.class, new HashMap<>())))
-        .doOnNext(book -> log.info("Successfully get all books"));
+  public Mono<List<Book>> getAll() {
+    return bookService.getAll();
   }
 
   @PutMapping(BOOK_ID_PATH + ADD_QUANTITY_PATH)
   @ResponseStatus(HttpStatus.OK)
   public Mono<Book> addQuantity(@PathVariable(BOOK_ID) String bookId, @RequestBody int quantity) {
-    return bookRepository.findById(bookId)
-        .switchIfEmpty(Mono.error(new DataNotFoundException(Book.class, Map.of(BOOK_ID, bookId))))
-        .map(book -> book.toBuilder()
-            .quantity(book.getQuantity() + quantity)
-            .build())
-        .flatMap(bookRepository::save)
-        .doOnSuccess(book -> log.info("Successfully add quantity of book with id: {} and updated quantity: {}", book.getId(), book.getQuantity()));
+    return bookService.addQuantity(bookId, quantity);
   }
 
   @PutMapping(BOOK_ID_PATH + REDUCE_QUANTITY_PATH)
   @ResponseStatus(HttpStatus.OK)
   public Mono<Book> reduceQuantity(@PathVariable(BOOK_ID) String bookId, @RequestBody int quantity) {
-    return bookRepository.findById(bookId)
-        .switchIfEmpty(Mono.error(new DataNotFoundException(Book.class, Map.of(BOOK_ID, bookId))))
-        .filter(book -> (book.getQuantity() - quantity) >= 0)
-        .switchIfEmpty(Mono.error(new BadRequestException("reduced quantity is greater than availability")))
-        .map(book -> book.toBuilder()
-            .quantity(book.getQuantity() - quantity)
-            .build())
-        .flatMap(bookRepository::save)
-        .doOnSuccess(book -> log.info("Successfully reduce quantity of book with id: {} and updated quantity: {}", book.getId(), book.getQuantity()));
+    return bookService.reduceQuantity(bookId, quantity);
   }
 
 }
