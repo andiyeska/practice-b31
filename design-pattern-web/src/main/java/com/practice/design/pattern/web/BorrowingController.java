@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
@@ -26,8 +27,9 @@ import static com.practice.design.pattern.web.BookController.BOOK_ID;
 import static com.practice.design.pattern.web.MemberController.MEMBER_ID;
 
 @Slf4j
+@RestController
 @RequiredArgsConstructor
-@RestController(BorrowingController.BASE_PATH)
+@RequestMapping(BorrowingController.BASE_PATH)
 public class BorrowingController {
   public static final String BASE_PATH = "/borrowings";
   public static final String BORROWING_ID = "borrowing_id";

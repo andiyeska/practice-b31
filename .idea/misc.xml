@@ -8,6 +8,14 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/design-pattern-command-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/design-pattern-command-model/pom.xml" />
+        <option value="$PROJECT_DIR$/design-pattern-command/pom.xml" />
+        <option value="$PROJECT_DIR$/design-pattern-service-model/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

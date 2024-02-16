@@ -25,11 +25,7 @@
 		<module>design-pattern-entity</module>
 		<module>design-pattern-repository</module>
 		<module>design-pattern-service</module>
-		<module>design-pattern-service-model</module>
 		<module>design-pattern-service-impl</module>
-		<module>design-pattern-command</module>
-		<module>design-pattern-command-model</module>
-		<module>design-pattern-command-impl</module>
 	</modules>
 
 	<properties>

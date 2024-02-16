@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -21,11 +22,10 @@ import reactor.core.publisher.Mono;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.lang.String.format;
-
 @Slf4j
+@RestController
 @RequiredArgsConstructor
-@RestController(MemberController.BASE_PATH)
+@RequestMapping(MemberController.BASE_PATH)
 public class MemberController {
 
   public static final String BASE_PATH = "/members";

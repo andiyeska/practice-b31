@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
@@ -25,8 +26,9 @@ import java.util.Map;
 import java.util.Objects;
 
 @Slf4j
+@RestController
 @RequiredArgsConstructor
-@RestController(BookController.BASE_PATH)
+@RequestMapping(BookController.BASE_PATH)
 public class BookController {
 
   public static final String BASE_PATH = "/books";
