@@ -1,5 +1,9 @@
 package com.practice.design.pattern.web;
 
+import com.practice.design.pattern.command.SaveBookCommand;
+import com.practice.design.pattern.command.impl.executor.CommandExecutor;
+import com.practice.design.pattern.command.model.request.SaveBookCommandRequest;
+import com.practice.design.pattern.command.model.response.SaveBookCommandResponse;
 import com.practice.design.pattern.entity.Book;
 import com.practice.design.pattern.service.BookService;
 import com.practice.design.pattern.web.model.book.SaveBookWebRequest;
@@ -31,17 +35,18 @@ public class BookController {
   private static final String ADD_QUANTITY_PATH = "/_add-quantity";
   private static final String REDUCE_QUANTITY_PATH = "/_reduce-quantity";
 
+  private final CommandExecutor commandExecutor;
   private final BookService bookService;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Book> save(@RequestBody SaveBookWebRequest webRequest) {
-    return bookService.save(
-        Book.builder()
-            .id(webRequest.getId())
-            .name(webRequest.getName())
-            .quantity(webRequest.getQuantity())
-            .build());
+  public Mono<SaveBookCommandResponse> save(@RequestBody SaveBookWebRequest webRequest) {
+    return commandExecutor.execute(SaveBookCommand.class,
+            SaveBookCommandRequest.builder()
+                .id(webRequest.getId())
+                .name(webRequest.getName())
+                .quantity(webRequest.getQuantity())
+                .build());
   }
 
   @PutMapping(BOOK_ID_PATH)

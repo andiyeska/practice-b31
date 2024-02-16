@@ -26,21 +26,6 @@ public class BookServiceImpl implements BookService {
   private final BookRepository bookRepository;
 
   @Override
-  public Mono<Book> save(Book book) {
-    return bookRepository.findById(book.getId())
-        .switchIfEmpty(Mono.just(Book.builder().build()))
-        .filter(newBook -> Objects.isNull(newBook.getId()))
-        .switchIfEmpty(Mono.error(new DuplicateDataException(com.practice.design.pattern.entity.Book.class, book.getId())))
-        .map(newBook -> newBook.toBuilder()
-            .id(book.getId())
-            .name(book.getName())
-            .quantity(book.getQuantity())
-            .build())
-        .flatMap(bookRepository::save)
-        .doOnSuccess(newBook -> log.info("Successfully save book with id: {}", newBook.getId()));
-  }
-
-  @Override
   public Mono<Book> update(Book book) {
     return get(book.getId())
         .map(updatedBook -> updatedBook.toBuilder()

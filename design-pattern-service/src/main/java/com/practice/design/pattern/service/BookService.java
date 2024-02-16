@@ -7,7 +7,6 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 public interface BookService {
-  Mono<Book> save(Book book);
   Mono<Book> update(Book book);
   Mono<Book> get(String id);
   Mono<List<Book>> getAll();
