@@ -1,11 +1,15 @@
 
-# Service Pattern
+# Command Pattern
 
-You are just accepted as a Software Development Engineer in a library of your city. 
-The library just recently implement information system technology to support their activities. 
+After your update the code implementation by using Service Pattern, all the members agree to keep using that pattern.
+After using it for some time, the system is growing.
+The function in each is service is increasing.
+It also makes total line of code in the implementation class is also growing.
+Besides, the team want to make pre- and post- processes before the main process is being executed.
+They said that this could be something like validation and fallback
 
-Because of the limited resource and tight deadline, the first version of the system is created without thinking too much about the pattern. 
-Every logic is written under the Controller. So as you can see, there are some duplicated logics in the code. 
-
-You have an idea to implement a pattern called Service Pattern. You raise the idea and the team want you to show them how does it looks like if the pattern is implemented on the system. 
-So now you will update the code by implementing the pattern. **Good luck!**
+The problem is if we implement pre- and post- process for each function, the line of code will be snowballing for every new function created.
+You are aware of a pattern called Command Pattern.
+You feel like this could be the solution of this problem.
+So again, you are going to update the code by implementing the pattern and later present it to your team.
+**Good luck!**
