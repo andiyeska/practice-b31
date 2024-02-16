@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="design-pattern-web" />
         <module name="design-pattern-app" />
+        <module name="design-pattern-repository" />
         <module name="design-pattern-entity" />
         <module name="design-pattern-service-impl" />
-        <module name="design-pattern-enum" />
-        <module name="design-pattern-web" />
-        <module name="design-pattern-repository" />
         <module name="design-pattern-service" />
+        <module name="design-pattern-enum" />
         <module name="design-pattern-web-model" />
         <module name="design-pattern-common" />
       </profile>

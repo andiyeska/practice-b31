@@ -123,3 +123,5 @@ rdesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/bo
 sdesign-pattern-web-model/src/main/java/com/practice/design/pattern/web/model/borrowing/SaveBorrowingWebRequest.java,b\e\be3da46270d13e41971895f02bd4a5608e1e7a4f
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+T
+$design-pattern-repository/.gitignore,2\f\2f6213cfa82fd97e86bc6e2785937550ab3bc867
