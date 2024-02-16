@@ -139,3 +139,11 @@ Udesign-pattern-web/src/main/java/com/practice/design/pattern/web/BookServiceImp
 Zdesign-pattern-web/src/main/java/com/practice/design/pattern/web/BorrowingServiceImpl.java,8\b\8b9683f42de14b532c0646ca96143efbaa7ce257
 ‡
 Wdesign-pattern-web/src/main/java/com/practice/design/pattern/web/MemberServiceImpl.java,c\1\c18d041c205ce7bb60c576757b4db6326312ba17
+T
+$design-pattern-repository/.gitignore,2\f\2f6213cfa82fd97e86bc6e2785937550ab3bc867
+‰
+Ydesign-pattern-command/src/main/java/com/practice/design/pattern/command/SomeCommand.java,a\5\a5d55867405277c4cf06ccf37bbf8518f1f7d2e1
+•
+edesign-pattern-command-model/src/main/java/com/practice/design/pattern/command/model/SomeCommand.java,5\d\5d47b39257527aece91ae263aee5708db27532ef
+š
+jdesign-pattern-command-model/src/main/java/com/practice/design/pattern/command/model/SomeCommandModel.java,6\5\654d982748236d1e145530dc112b3aedcec0c54b
