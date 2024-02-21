@@ -13,10 +13,13 @@
         <module name="design-pattern-command" />
         <module name="design-pattern-web" />
         <module name="design-pattern-repository" />
+        <module name="design-pattern-streaming" />
         <module name="design-pattern-command-model" />
         <module name="design-pattern-service" />
+        <module name="design-pattern-streaming-model" />
         <module name="design-pattern-web-model" />
         <module name="design-pattern-common" />
+        <module name="design-pattern-helper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -34,10 +37,13 @@
       <module name="design-pattern-common" options="-parameters" />
       <module name="design-pattern-entity" options="-parameters" />
       <module name="design-pattern-enum" options="-parameters" />
+      <module name="design-pattern-helper" options="-parameters" />
       <module name="design-pattern-repository" options="-parameters" />
       <module name="design-pattern-service" options="-parameters" />
       <module name="design-pattern-service-impl" options="-parameters" />
       <module name="design-pattern-service-model" options="-parameters" />
+      <module name="design-pattern-streaming" options="-parameters" />
+      <module name="design-pattern-streaming-model" options="-parameters" />
       <module name="design-pattern-web" options="-parameters" />
       <module name="design-pattern-web-model" options="-parameters" />
       <module name="design.pattern.core" options="-parameters" />

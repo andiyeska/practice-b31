@@ -30,11 +30,6 @@
 		</dependency>
 		<dependency>
 			<groupId>com.practice</groupId>
-			<artifactId>design-pattern-service-impl</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.practice</groupId>
 			<artifactId>design-pattern-command-impl</artifactId>
 			<version>${project.version}</version>
 		</dependency>

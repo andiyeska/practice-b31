@@ -1,7 +1,19 @@
 package com.practice.design.pattern.web;
 
+import com.practice.design.pattern.command.impl.executor.CommandExecutor;
+import com.practice.design.pattern.command.member.GetAllMemberCommand;
+import com.practice.design.pattern.command.member.GetMemberCommand;
+import com.practice.design.pattern.command.member.SaveMemberCommand;
+import com.practice.design.pattern.command.member.UpdateMemberCommand;
+import com.practice.design.pattern.command.model.request.member.GetAllMemberCommandRequest;
+import com.practice.design.pattern.command.model.request.member.GetMemberCommandRequest;
+import com.practice.design.pattern.command.model.request.member.SaveMemberCommandRequest;
+import com.practice.design.pattern.command.model.request.member.UpdateMemberCommandRequest;
+import com.practice.design.pattern.command.model.response.member.GetAllMemberCommandResponse;
+import com.practice.design.pattern.command.model.response.member.GetMemberCommandResponse;
+import com.practice.design.pattern.command.model.response.member.SaveMemberCommandResponse;
+import com.practice.design.pattern.command.model.response.member.UpdateMemberCommandResponse;
 import com.practice.design.pattern.entity.Member;
-import com.practice.design.pattern.service.MemberService;
 import com.practice.design.pattern.web.model.member.SaveMemberWebRequest;
 import com.practice.design.pattern.web.model.member.UpdateMemberWebRequest;
 import lombok.RequiredArgsConstructor;
@@ -29,37 +41,42 @@ public class MemberController {
   public static final String MEMBER_ID = "member_id";
   public static final String MEMBER_ID_PATH = "/{" + MEMBER_ID + "}";
 
-  private final MemberService memberService;
+  private final CommandExecutor commandExecutor;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Mono<Member> save(@RequestBody SaveMemberWebRequest webRequest) {
-    return memberService.save(
-        Member.builder()
+    return commandExecutor.execute(SaveMemberCommand.class, SaveMemberCommandRequest.builder()
             .name(webRequest.getName())
-            .build());
+            .build())
+        .map(SaveMemberCommandResponse::getMember);
   }
 
   @PutMapping(MEMBER_ID_PATH)
   @ResponseStatus(HttpStatus.OK)
   public Mono<Member> update(@PathVariable(MEMBER_ID) String memberId, @RequestBody UpdateMemberWebRequest webRequest) {
-    return memberService.update(
-        Member.builder()
+    return commandExecutor.execute(UpdateMemberCommand.class, UpdateMemberCommandRequest.builder()
             .id(memberId)
             .name(webRequest.getName())
-            .build());
+            .build())
+        .map(UpdateMemberCommandResponse::getMember);
   }
 
   @GetMapping(MEMBER_ID_PATH)
   @ResponseStatus(HttpStatus.OK)
   public Mono<Member> get(@PathVariable(MEMBER_ID) String memberId) {
-    return memberService.get(memberId);
+    return commandExecutor.execute(GetMemberCommand.class, GetMemberCommandRequest.builder()
+            .id(memberId)
+            .build())
+        .map(GetMemberCommandResponse::getMember);
   }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public Mono<List<Member>> getAll() {
-    return memberService.getAll();
+    return commandExecutor.execute(GetAllMemberCommand.class, GetAllMemberCommandRequest.builder()
+            .build())
+        .map(GetAllMemberCommandResponse::getMembers);
   }
 
 }

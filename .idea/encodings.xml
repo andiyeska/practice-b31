@@ -8,10 +8,13 @@
     <file url="file://$PROJECT_DIR$/design-pattern-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-entity/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-enum/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/design-pattern-helper/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-repository/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-service-impl/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-service-model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/design-pattern-streaming-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/design-pattern-streaming/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-web-model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-pattern-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
