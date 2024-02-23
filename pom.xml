@@ -22,6 +22,7 @@
 		<module>design-pattern-web</module>
 		<module>design-pattern-common</module>
 		<module>design-pattern-helper</module>
+		<module>design-pattern-configuration</module>
 		<module>design-pattern-web-model</module>
 		<module>design-pattern-entity</module>
 		<module>design-pattern-repository</module>
